@@ -1,0 +1,100 @@
+import java.util.*;
+interface AirlineManagement {
+    void setPassengerName(String name);
+    void setPassengerID(int id);
+    void setFlightNumber(String flightNumber);
+    void setSeatNumber(String seatNumber);
+    void setContactNumber(String contactNumber);
+    void displayTicket();
+    void displayPassengerInfo();
+}
+class Flight {
+    String passengerName, flightNumber, seatNumber, contactNumber;
+    int passengerID;
+
+    void setPassengerName(String name) {
+        this.passengerName = name;
+    }
+
+    void setPassengerID(int id) {
+        this.passengerID = id;
+    }
+
+    void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+}
+
+class Reservation extends Flight implements AirlineManagement {
+    public void setPassengerName(String name) {
+        super.setPassengerName(name);
+    }
+
+    public void setPassengerID(int id) {
+        super.setPassengerID(id);
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        super.setFlightNumber(flightNumber);
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        super.setSeatNumber(seatNumber);
+    }
+
+    public void setContactNumber(String contactNumber) {
+        super.setContactNumber(contactNumber);
+    }
+
+    public void displayTicket() {
+        System.out.println("Ticket Information:");
+        System.out.println("Passenger Name: " + passengerName);
+        System.out.println("Passenger ID: " + passengerID);
+        System.out.println("Flight Number: " + flightNumber);
+        System.out.println("Seat Number: " + seatNumber);
+    }
+
+    public void displayPassengerInfo() {
+        System.out.println("Passenger Information:");
+        System.out.println("Name: " + passengerName);
+        System.out.println("ID: " + passengerID);
+        System.out.println("Contact Number: " + contactNumber);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        String name, flightNumber, seatNumber, contactNumber;
+        int id;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Passenger Name:");
+        name = sc.next();
+        System.out.println("Enter Passenger ID:");
+        id = sc.nextInt();
+        System.out.println("Enter Flight Number:");
+        flightNumber = sc.next();
+        System.out.println("Enter Seat Number:");
+        seatNumber = sc.next();
+        System.out.println("Enter Contact Number:");
+        contactNumber = sc.next();
+
+        Reservation reservation = new Reservation();
+        reservation.setPassengerName(name);
+        reservation.setPassengerID(id);
+        reservation.setFlightNumber(flightNumber);
+        reservation.setSeatNumber(seatNumber);
+        reservation.setContactNumber(contactNumber);
+
+        reservation.displayTicket();
+        reservation.displayPassengerInfo();
+    }
+}
